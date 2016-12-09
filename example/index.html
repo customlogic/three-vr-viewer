@@ -14,7 +14,7 @@
     <script type="text/javascript" src="js/three-vr-viewer.js"></script>
     <script type="text/javascript">
 
-      const { scene, camera, renderer, events, toggleVR, controllers  } = VRViewer({
+      const { scene, camera, renderer, events, toggleVR, controllers, vrEffect  } = VRViewer({
         //  triggers entering vr without any input
         autoEnter: true,
 
@@ -23,7 +23,7 @@
         THREE
       });
 
-      console.log( scene, camera, renderer, controllers );
+      console.log( scene, camera, renderer, controllers, vrEffect );
 
       //  controller not showing? click any button on the controller!
 
@@ -51,6 +51,12 @@
         scene.add( box );
         box.position.set( 0, 1.2, 0 );
       });
+
+      // load the site with #lores to see VR in low resolution
+      var isLowResMode = (window.location.hash.indexOf('lores') == -1) ? false : true;
+      if (isLowResMode) {
+        vrEffect.setVRResolutionRatio(0.1);
+      }
 
     </script>
 
