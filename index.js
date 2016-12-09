@@ -127,8 +127,6 @@ const OBJLoader = require( './thirdparty/objloader' )( THREE );
   function animate() {
     const dt = clock.getDelta();
 
-    effect.requestAnimationFrame( animate );
-
     controller1.update();
     controller2.update();
 
@@ -139,6 +137,8 @@ const OBJLoader = require( './thirdparty/objloader' )( THREE );
     render();
 
     events.emit( 'render', dt )
+    
+    effect.requestAnimationFrame( animate );
   }
 
   function render() {
