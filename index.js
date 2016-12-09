@@ -26,7 +26,7 @@ const VRControls = require( './thirdparty/vrcontrols' )( THREE );
 const ViveController = require( './thirdparty/vivecontroller' )( THREE );
 const OBJLoader = require( './thirdparty/objloader' )( THREE );
 
-  if ( WEBVR.isLatestAvailable() === false ) {
+  if ( WEBVR.isAvailable() === false ) {
     document.body.appendChild( WEBVR.getMessage() );
   }
 
